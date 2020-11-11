@@ -15,6 +15,7 @@ AFRAME.registerComponent('popup', {
       this.camera = camera
       this.parentObject= parentObject
     },
+
     update: function () {},
     tick: function () {
       // get position of self
@@ -27,7 +28,8 @@ AFRAME.registerComponent('popup', {
       const distanceToCamera = objPos.distanceTo(cameraPos)
       //console.log(distanceToCamera)
       // console.log(objPos, cameraPos)
-      // if distance is less than three, change visible to false, otherwise set as true
+
+      // if distance is less than three, change visible (leaf text) to false, otherwise set as true (show leaf text)
       if (distanceToCamera < 3){
         this.el.object3D.visible = true;
       } else {
@@ -48,8 +50,10 @@ AFRAME.registerComponent('popup', {
     return Math.random() * (max - min) + min; 
   }
 
+  //This is the way I want to add all the leaves (rather than in HTML) but I am getting an error with the animations. 
+
   function addLeaf(sceneEl, leafIndex) {
- //Create an entity, a not den leaf
+ //Create an entity, a notDen leaf
     var notDenLeaf = document.createElement('a-entity');
     notDenLeaf.setAttribute('geometry', 'primitive: plane; width: 2; height: 2');
     // notDenLeaf.setAttribute('material', "src:#leaf_3; side:double; transparent: true; normalMap:#leaf_3_normal_map; roughness:1")
@@ -59,7 +63,7 @@ AFRAME.registerComponent('popup', {
     // notDenLeaf.setAttribute('animation__RZ', 'property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true')
     // Inspector: Uncaught TypeError: Cannot read property 'autoplay' of undefined --- when multiple animations
 
-    // Create an element, not den text
+    // Create an element, notDen text
     var notDenText = document.createElement('a-entity');
     // Get: core:a-node:error Failure loading node:   TypeError: Cannot read property 'indexOf' of undefined
     //notDenText.setAttribute('text', 'Notholithocarpus densiflorus; color:#FFD500; align:center')
@@ -74,9 +78,9 @@ AFRAME.registerComponent('popup', {
     notDenContainer.setAttribute('id', 'notholithocarpus'+ leafIndex)
     // notDenContainer.setAttribute('animation__MV','property: position; to: -3 -1 4; dir: normal; dur: 20000; loop: true')
     // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
-    notDenContainer.setAttribute('position',{x: getRandomNumber(-8,8), y: getRandomNumber(-8,16), z: getRandomNumber(-20,8)})
+    notDenContainer.setAttribute('position',{x: getRandomNumber(-40,40), y: getRandomNumber(-40,40), z: getRandomNumber(-40,20)})
 
-    //Add these to container once they look good in scene
+    // use appendChild to add leaf and leaf text to the container
     notDenContainer.appendChild(notDenLeaf)
     notDenContainer.appendChild(notDenText)
 
@@ -84,8 +88,8 @@ AFRAME.registerComponent('popup', {
     // create element leafText, and set attributes like above
     // create element leafContainer and set attributes like above (animation, id, etc.)
     // use appendChild to add leaf and leaf text to leafContainer
-    // use appendChild to add leafContainer to sceneEl instead of the leaf (like below)
 
+    // use appendChild to add leafContainer to sceneEl 
     sceneEl.appendChild(notDenContainer);
 
     // sceneEl.appendChild(notDenLeaf);
@@ -105,48 +109,13 @@ AFRAME.registerComponent('popup', {
       // sceneEl.renderer.sortObjects = true;
       var i;
 
-  for (i=0; i<500; i++) {
+
+
+  // this is the for loop that generates the many leaves and adds them to the sceneEl    
+  for (i=0; i<1000; i++) {
    
     addLeaf(sceneEl, i);
   }
 
-
-    
-     
-
-      // TODO2: Make a basic for loop that prints random numbers to log -- once that is working, we can use those numbers to set random positions and duration for leaf animations
-      //    randomNumber= getRandomNumber()
-    
-      // TODO3: copy the above leaf adding code into the loop to make lots of leaves
-
     }
     });
-
-  
-
-
-//   This outermost entity is the container
-//   <a-entity id="sequoia" animation__MV="property: position; to: -3 -1 4; dir: normal; dur: 20000; loop: true" position="3 4 1"> 
-//     This entity is the leaf
-//     <a-entity
-//     geometry="primitive: plane; width: 2; height: 2"
-    
-//     material="src:#leaf 2; side:double; transparent: true; normalMap:#leaf 2 normal map; roughness:1"
-//     animation__RX="property: object3D.rotation.x; to: 359.999; dur: 10000; easing: linear; loop: true"
-//     animation__RY="property: object3D.rotation.y; to: 359.999; dur: 6000; easing: linear; loop: true"
-//     animation__RZ="property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true"  
-//   >
-//   </a-entity>
-//
-//   This entity is the text
-//   <a-entity
-//   text="value: Sequoia sempervirens; color: #FFD500; align: center"
-//   look-at="#camera"
-//   scale="2 2 2"
-//   position= "0 0 1"
-//   popup= "parent:#sequoia"
-//   ></a-entity>
-// </a-entity> <!-- end sequoia container-->
-
-
-
