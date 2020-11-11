@@ -6,7 +6,7 @@ AFRAME.registerComponent('popup', {
     },
     init: function () {
       // init is called when object is created
-      console.log('looks good')
+      console.log('popup: looks good')
   
       // define a camera object so we don't have to query it every time
       const sceneEl = document.querySelector('a-scene');
@@ -52,29 +52,33 @@ AFRAME.registerComponent('popup', {
  //Create an entity, a not den leaf
     var notDenLeaf = document.createElement('a-entity');
     notDenLeaf.setAttribute('geometry', 'primitive: plane; width: 2; height: 2');
-    notDenLeaf.setAttribute('material', "src:#leaf_3; side:double; transparent: true; normalMap:#leaf_3_normal_map; roughness:1")
-    notDenLeaf.setAttribute('animation','property: object3D.rotation.x; to: 359.999; dur: 10000; easing: linear; loop: true');
-    notDenLeaf.setAttribute('animation__RY', 'property: object3D.rotation.y; to: 359.999; dur: 6000; easing: linear; loop: true')
-    //notDenLeaf.setAttribute('animation__RZ', 'property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true')
+    // notDenLeaf.setAttribute('material', "src:#leaf_3; side:double; transparent: true; normalMap:#leaf_3_normal_map; roughness:1")
+    notDenLeaf.setAttribute('material', "src:#leaf_3; side:double; alphaTest: .9; transparent: false; normalMap:#leaf_3_normal_map; roughness:1")
+    notDenLeaf.setAttribute('animation',{property: "object3D.rotation.x", to: 359.999, dur: getRandomNumber(4000, 12000), easing: "linear", loop: true});
+    //notDenLeaf.setAttribute('animation__RY', 'property: object3D.rotation.y; to: 359.999; dur: 6000; easing: linear; loop: true')
+    // notDenLeaf.setAttribute('animation__RZ', 'property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true')
+    // Inspector: Uncaught TypeError: Cannot read property 'autoplay' of undefined --- when multiple animations
 
-    // // Create an element, not den text
-    // var notDenText = document.createElement('a-entity');
-    // notDenText.setAttribute('text', 'Notholithocarpus densiflorus; color:#FFD500; align:center')
-    // notDenText.setAttribute('look-at', '#camera')
-    // notDenText.setAttribute('scale', '2 2 2')
-    // notDenText.setAttribute('position', '0 0 1')
-    // notDenText.setAttribute('popup', 'parent:#notholithocarpus')
+    // Create an element, not den text
+    var notDenText = document.createElement('a-entity');
+    // Get: core:a-node:error Failure loading node:   TypeError: Cannot read property 'indexOf' of undefined
+    //notDenText.setAttribute('text', 'Notholithocarpus densiflorus; color:#FFD500; align:center')
+    notDenText.setAttribute('look-at', '#camera')
+    notDenText.setAttribute('scale', '2 2 2')
+    notDenText.setAttribute('position', '0 0 1')
+    notDenText.setAttribute('popup', 'parent:#notholithocarpus'+ leafIndex)
+
 
     // Create a element, not den leaf container and set attributes (animation, id, etc.)
     var notDenContainer = document.createElement('a-entity');
-    notDenContainer.setAttribute('id', 'notholithocarpus2'+3)
+    notDenContainer.setAttribute('id', 'notholithocarpus'+ leafIndex)
     // notDenContainer.setAttribute('animation__MV','property: position; to: -3 -1 4; dir: normal; dur: 20000; loop: true')
     // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
-    notDenContainer.setAttribute('position',{x: getRandomNumber(-4,4), y: getRandomNumber(-4,4), z: getRandomNumber(-4,4)})
+    notDenContainer.setAttribute('position',{x: getRandomNumber(-8,8), y: getRandomNumber(-8,16), z: getRandomNumber(-20,8)})
 
     //Add these to container once they look good in scene
     notDenContainer.appendChild(notDenLeaf)
-    // notDenContainer.appendChild(notDenText)
+    notDenContainer.appendChild(notDenText)
 
     // TODO1:
     // create element leafText, and set attributes like above
@@ -98,10 +102,10 @@ AFRAME.registerComponent('popup', {
 
       // Get the scene element
       var sceneEl = document.querySelector('a-scene');
-
+      // sceneEl.renderer.sortObjects = true;
       var i;
 
-  for (i=0; i<20; i++) {
+  for (i=0; i<500; i++) {
    
     addLeaf(sceneEl, i);
   }
