@@ -1,3 +1,4 @@
+
 console.log("hello")
 AFRAME.registerComponent('popup', {
     schema: {
@@ -47,8 +48,44 @@ AFRAME.registerComponent('popup', {
     return Math.random() * (max - min) + min; 
   }
 
-  function addLeaf(sceneEl) {
+  function addLeaf(sceneEl, leafIndex) {
+ //Create an entity, a not den leaf
+    var notDenLeaf = document.createElement('a-entity');
+    notDenLeaf.setAttribute('geometry', 'primitive: plane; width: 2; height: 2');
+    notDenLeaf.setAttribute('material', "src:#leaf_3; side:double; transparent: true; normalMap:#leaf_3_normal_map; roughness:1")
+    notDenLeaf.setAttribute('animation','property: object3D.rotation.x; to: 359.999; dur: 10000; easing: linear; loop: true');
+    notDenLeaf.setAttribute('animation__RY', 'property: object3D.rotation.y; to: 359.999; dur: 6000; easing: linear; loop: true')
+    //notDenLeaf.setAttribute('animation__RZ', 'property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true')
 
+    // // Create an element, not den text
+    // var notDenText = document.createElement('a-entity');
+    // notDenText.setAttribute('text', 'Notholithocarpus densiflorus; color:#FFD500; align:center')
+    // notDenText.setAttribute('look-at', '#camera')
+    // notDenText.setAttribute('scale', '2 2 2')
+    // notDenText.setAttribute('position', '0 0 1')
+    // notDenText.setAttribute('popup', 'parent:#notholithocarpus')
+
+    // Create a element, not den leaf container and set attributes (animation, id, etc.)
+    var notDenContainer = document.createElement('a-entity');
+    notDenContainer.setAttribute('id', 'notholithocarpus2'+3)
+    // notDenContainer.setAttribute('animation__MV','property: position; to: -3 -1 4; dir: normal; dur: 20000; loop: true')
+    // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
+    notDenContainer.setAttribute('position',{x: getRandomNumber(-4,4), y: getRandomNumber(-4,4), z: getRandomNumber(-4,4)})
+
+    //Add these to container once they look good in scene
+    notDenContainer.appendChild(notDenLeaf)
+    // notDenContainer.appendChild(notDenText)
+
+    // TODO1:
+    // create element leafText, and set attributes like above
+    // create element leafContainer and set attributes like above (animation, id, etc.)
+    // use appendChild to add leaf and leaf text to leafContainer
+    // use appendChild to add leafContainer to sceneEl instead of the leaf (like below)
+
+    sceneEl.appendChild(notDenContainer);
+
+    // sceneEl.appendChild(notDenLeaf);
+    // sceneEl.appendChild(notDenText);
   }
 
   AFRAME.registerComponent('start', {
@@ -62,57 +99,21 @@ AFRAME.registerComponent('popup', {
       // Get the scene element
       var sceneEl = document.querySelector('a-scene');
 
-      //Create an entity, a not den leaf
-      var notDenLeaf = document.createElement('a-entity');
-      notDenLeaf.setAttribute('geometry', 'primitive: plane; width: 2; height: 2');
-      notDenLeaf.setAttribute('material', "src:#leaf_3; side:double; transparent: true; normalMap:#leaf_3_normal_map; roughness:1")
-      notDenLeaf.setAttribute('animation','property: object3D.rotation.x; to: 359.999; dur: 10000; easing: linear; loop: true');
-      notDenLeaf.setAttribute('animation__RY', 'property: object3D.rotation.y; to: 359.999; dur: 6000; easing: linear; loop: true')
-      //notDenLeaf.setAttribute('animation__RZ', 'property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true')
+      var i;
+
+  for (i=0; i<20; i++) {
    
-      // // Create an element, not den text
-      // var notDenText = document.createElement('a-entity');
-      // notDenText.setAttribute('text', 'Notholithocarpus densiflorus; color:#FFD500; align:center')
-      // notDenText.setAttribute('look-at', '#camera')
-      // notDenText.setAttribute('scale', '2 2 2')
-      // notDenText.setAttribute('position', '0 0 1')
-      // notDenText.setAttribute('popup', 'parent:#notholithocarpus')
+    addLeaf(sceneEl, i);
+  }
 
-      // Create a element, not den leaf container and set attributes (animation, id, etc.)
-      var notDenContainer = document.createElement('a-entity');
-      notDenContainer.setAttribute('id', 'notholithocarpus2'+3)
-      // notDenContainer.setAttribute('animation__MV','property: position; to: -3 -1 4; dir: normal; dur: 20000; loop: true')
-      notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
 
-      //Add these to container once they look good in scene
-      notDenContainer.appendChild(notDenLeaf)
-      // notDenContainer.appendChild(notDenText)
-
-      // TODO1:
-      // create element leafText, and set attributes like above
-      // create element leafContainer and set attributes like above (animation, id, etc.)
-      // use appendChild to add leaf and leaf text to leafContainer
-      // use appendChild to add leafContainer to sceneEl instead of the leaf (like below)
-
-      sceneEl.appendChild(notDenContainer);
-
-      // sceneEl.appendChild(notDenLeaf);
-      // sceneEl.appendChild(notDenText);
-
+    
+     
 
       // TODO2: Make a basic for loop that prints random numbers to log -- once that is working, we can use those numbers to set random positions and duration for leaf animations
       //    randomNumber= getRandomNumber()
-      //    console.log(randomNumber)
-      //    for numbers in randomNumber {
-      //  console.log(randomNumber)
-      //}
+    
       // TODO3: copy the above leaf adding code into the loop to make lots of leaves
-
-
-
-
-
-
 
     }
     });
