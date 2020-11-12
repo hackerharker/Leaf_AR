@@ -55,18 +55,48 @@ AFRAME.registerComponent('popup', {
   function addLeaf(sceneEl, leafIndex) {
  //Create an entity, a notDen leaf
     var notDenLeaf = document.createElement('a-entity');
-    notDenLeaf.setAttribute('geometry', 'primitive: plane; width: 2; height: 2');
+    notDenLeaf.setAttribute(
+      'geometry', 
+      'primitive: plane; width: 2; height: 2');
+
     // notDenLeaf.setAttribute('material', "src:#leaf_3; side:double; transparent: true; normalMap:#leaf_3_normal_map; roughness:1")
-    notDenLeaf.setAttribute('material', "src:#leaf_3; side:double; alphaTest: .9; transparent: false; normalMap:#leaf_3_normal_map; roughness:1")
-    notDenLeaf.setAttribute('animation',{property: "object3D.rotation.x", to: 359.999, dur: getRandomNumber(4000, 12000), easing: "linear", loop: true});
-    //notDenLeaf.setAttribute('animation__RY', 'property: object3D.rotation.y; to: 359.999; dur: 6000; easing: linear; loop: true')
-    // notDenLeaf.setAttribute('animation__RZ', 'property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true')
+    notDenLeaf.setAttribute('material', 
+      "src:#leaf_3; side:double; alphaTest: .9; transparent: false; normalMap:#leaf_3_normal_map; roughness:1")
+
+    //notDenLeaf.setAttribute('animation',{property: "object3D.rotation.x", to: 359.999, dur: getRandomNumber(4000, 12000), easing: "linear", loop: true});
+    
+    notDenLeaf.setAttribute('animation',{
+      property: "object3D.rotation.x", 
+      to: 359.999, 
+      dur: getRandomNumber(4000, 12000), 
+      easing: "linear", 
+      loop: true
+    });
+      
+    notDenLeaf.setAttribute('animation__y',{
+      property: "object3D.rotation.y", 
+      to: 359.999, 
+      dur: getRandomNumber(4000, 12000), 
+      easing: "linear", 
+      loop: true
+    });
+
+    notDenLeaf.setAttribute('animation__z',{
+      property: "object3D.rotation.z", 
+      to: 359.999, 
+      dur: getRandomNumber(4000, 12000),
+      easing: "linear", 
+      loop: true
+    });
+
+    //notDenLeaf.setAttribute('animation__RY', 'property: object3D.rotation.y; to: 359.999; dur: 600; easing: linear; loop: true')
+    //notDenLeaf.setAttribute('animation__RZ', 'property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true')
     // Inspector: Uncaught TypeError: Cannot read property 'autoplay' of undefined --- when multiple animations
 
     // Create an element, notDen text
     var notDenText = document.createElement('a-entity');
     // Get: core:a-node:error Failure loading node:   TypeError: Cannot read property 'indexOf' of undefined
-    //notDenText.setAttribute('text', 'Notholithocarpus densiflorus; color:#FFD500; align:center')
+    notDenText.setAttribute('text', 'value:Notholithocarpus densiflorus; color:#FFD500; align:center')
     notDenText.setAttribute('look-at', '#camera')
     notDenText.setAttribute('scale', '2 2 2')
     notDenText.setAttribute('position', '0 0 1')
@@ -76,18 +106,35 @@ AFRAME.registerComponent('popup', {
     // Create a element, not den leaf container and set attributes (animation, id, etc.)
     var notDenContainer = document.createElement('a-entity');
     notDenContainer.setAttribute('id', 'notholithocarpus'+ leafIndex)
-    // notDenContainer.setAttribute('animation__MV','property: position; to: -3 -1 4; dir: normal; dur: 20000; loop: true')
+    // notDenContainer.setAttribute('animation',{'property: position; to: -3 -1 4; dir: normal; dur: 20000; loop: true')
+    var x_to= getRandomNumber(-20, 20)
+    var y_to= -20
+    var z_to= getRandomNumber(10, 20)
+    notDenContainer.setAttribute('animation',{
+      property: 'position',
+      to: {
+        x:x_to, 
+        y:y_to, 
+        z:z_to,
+      },
+      dir: 'normal', 
+      dur: getRandomNumber(30000, 50000), 
+      loop: true,
+      })
+
     // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
-    notDenContainer.setAttribute('position',{x: getRandomNumber(-40,40), y: getRandomNumber(-40,40), z: getRandomNumber(-40,20)})
+
+    notDenContainer.setAttribute('position',{
+      x: getRandomNumber(-40,40), 
+      y: 30, 
+      z: getRandomNumber(-40,20)
+    })
 
     // use appendChild to add leaf and leaf text to the container
     notDenContainer.appendChild(notDenLeaf)
     notDenContainer.appendChild(notDenText)
 
-    // TODO1:
-    // create element leafText, and set attributes like above
-    // create element leafContainer and set attributes like above (animation, id, etc.)
-    // use appendChild to add leaf and leaf text to leafContainer
+  
 
     // use appendChild to add leafContainer to sceneEl 
     sceneEl.appendChild(notDenContainer);
