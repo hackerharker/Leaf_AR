@@ -82,7 +82,7 @@ AFRAME.registerComponent('popup', {
     notDenLeaf.setAttribute('animation__y',{
       property: "object3D.rotation.y", 
       to: 359.999, 
-      dur: getRandomNumber(4000, 12000), 
+      dur: getRandomNumber(11000, 12000), // TODO change 10000 back to 40000
       easing: "linear", 
       loop: true
     });
@@ -106,7 +106,8 @@ AFRAME.registerComponent('popup', {
     notDenText.setAttribute('look-at', '#camera')
     notDenText.setAttribute('scale', '2 2 2')
     notDenText.setAttribute('position', '0 0 1')
-    notDenText.setAttribute('popup', 'parent:#notholithocarpus'+ leafIndex)
+    notDenText.setAttribute('visible', false)
+    //notDenText.setAttribute('popup', 'parent:#notholithocarpus'+ leafIndex)
 
 
     // Create a element, not den leaf container and set attributes (animation, id, etc.)
@@ -128,13 +129,25 @@ AFRAME.registerComponent('popup', {
       loop: true,
       })
 
+      notDenLeaf.addEventListener('mousedown', function() {
+        notDenText.setAttribute('visible', true);
+        //setTimeout(function(){ notDenText.setAttribute('visible', false);  }, 5000);
+        console.log('down '+speciesName+leafIndex);
+      });
+
+      // notDenLeaf.addEventListener('mouseup', function() {
+      //   //notDenText.setAttribute('visible', false);
+      //   console.log('up '+speciesName+leafIndex);
+      // });
+
     // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
 
     notDenContainer.setAttribute('position',{
       x: getRandomNumber(-40,40), 
-      y: 30, 
+      y: 10, 
       z: getRandomNumber(-40,20)
     })
+    // todo restore y: to 30
 
     // use appendChild to add leaf and leaf text to the container
     notDenContainer.appendChild(notDenLeaf)
@@ -163,11 +176,13 @@ AFRAME.registerComponent('popup', {
       var i;
 
 
-
+  // TODO var leafImages = ['#leaf_3', '#leaf_b' ...]
   // this is the for loop that generates the many leaves and adds them to the sceneEl    
-  for (i=0; i<1000; i++) {
-   
+  for (i=0; i<100; i++) {
+    // TODO rindex = Math.floor(getRandomNumber(0,20))
     addLeaf(sceneEl, i, "#leaf_3", "#leaf_3_normal_map", "Notholithocarpus densiflorus");
+    
+    //addLeaf(sceneEl, i, leafImages[10], nmaps[10], speciesNames[10]) // but use rindex instead of 10
   }
 
     }
