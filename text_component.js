@@ -50,17 +50,16 @@ AFRAME.registerComponent('popup', {
     return Math.random() * (max - min) + min; 
   }
 
-  //This is the way I want to add all the leaves (rather than in HTML) but I am getting an error with the animations. 
-
+  //this function generates the leaves 
   function addLeaf(sceneEl, leafIndex, imageSrc, normalMap, speciesName) {
- //Create an entity, a notDen leaf
-    var notDenLeaf = document.createElement('a-entity');
-    notDenLeaf.setAttribute(
+ //Create an entity, a new leaf
+    var newLeaf = document.createElement('a-entity');
+    newLeaf.setAttribute(
       'geometry', 
       'primitive: plane; width: 2; height: 2');
 
-    // notDenLeaf.setAttribute('material', "src:#leaf_3; side:double; transparent: true; normalMap:#leaf_3_normal_map; roughness:1")
-    notDenLeaf.setAttribute('material', {
+    // setting the leaf image and corresponding normal map
+    newLeaf.setAttribute('material', {
       src:imageSrc,
       side:"double",
       alphaTest:.9, 
@@ -69,9 +68,8 @@ AFRAME.registerComponent('popup', {
       roughness:1,
     })
 
-    //notDenLeaf.setAttribute('animation',{property: "object3D.rotation.x", to: 359.999, dur: getRandomNumber(4000, 12000), easing: "linear", loop: true});
-    
-    notDenLeaf.setAttribute('animation',{
+   // setting the x axis rotation of the leaf 
+    newLeaf.setAttribute('animation',{
       property: "object3D.rotation.x", 
       to: 359.999, 
       dur: getRandomNumber(4000, 12000), 
@@ -79,7 +77,8 @@ AFRAME.registerComponent('popup', {
       loop: true
     });
       
-    notDenLeaf.setAttribute('animation__y',{
+   // setting the y axis rotation of the leaf  
+    newLeaf.setAttribute('animation__y',{
       property: "object3D.rotation.y", 
       to: 359.999, 
       dur: getRandomNumber(11000, 12000), // TODO change 10000 back to 40000
@@ -87,7 +86,8 @@ AFRAME.registerComponent('popup', {
       loop: true
     });
 
-    notDenLeaf.setAttribute('animation__z',{
+  // setting the z axis rotation of the leaf 
+    newLeaf.setAttribute('animation__z',{
       property: "object3D.rotation.z", 
       to: 359.999, 
       dur: getRandomNumber(4000, 12000),
@@ -95,29 +95,28 @@ AFRAME.registerComponent('popup', {
       loop: true
     });
 
-    //notDenLeaf.setAttribute('animation__RY', 'property: object3D.rotation.y; to: 359.999; dur: 600; easing: linear; loop: true')
-    //notDenLeaf.setAttribute('animation__RZ', 'property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true')
-    // Inspector: Uncaught TypeError: Cannot read property 'autoplay' of undefined --- when multiple animations
+    //newLeaf.setAttribute('animation__RY', 'property: object3D.rotation.y; to: 359.999; dur: 600; easing: linear; loop: true')
+    //newLeaf.setAttribute('animation__RZ', 'property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true')
 
-    // Create an element, notDen text
-    var notDenText = document.createElement('a-entity');
-    // Get: core:a-node:error Failure loading node:   TypeError: Cannot read property 'indexOf' of undefined
-    notDenText.setAttribute('text', 'value:'+ speciesName +'; color:#FFD500; align:center')
-    notDenText.setAttribute('look-at', '#camera')
-    notDenText.setAttribute('scale', '2 2 2')
-    notDenText.setAttribute('position', '0 0 1')
-    notDenText.setAttribute('visible', false)
+
+    // create an element, leafText for the species name
+    var leafText = document.createElement('a-entity');
+    leafText.setAttribute('text', 'value:'+ speciesName +'; color:#FFD500; align:center')
+    leafText.setAttribute('look-at', '#camera')
+    leafText.setAttribute('scale', '2 2 2')
+    leafText.setAttribute('position', '0 0 1')
+    leafText.setAttribute('visible', false)
     //notDenText.setAttribute('popup', 'parent:#notholithocarpus'+ leafIndex)
 
 
-    // Create a element, not den leaf container and set attributes (animation, id, etc.)
-    var notDenContainer = document.createElement('a-entity');
-    notDenContainer.setAttribute('id', 'notholithocarpus'+ leafIndex)
-    // notDenContainer.setAttribute('animation',{'property: position; to: -3 -1 4; dir: normal; dur: 20000; loop: true')
+    // Create a element, leafContainer and set attributes (animation, id, etc.)
+    var leafContainer = document.createElement('a-entity');
+    leafContainer.setAttribute('id', 'notholithocarpus'+ leafIndex)
+    // leafContainer.setAttribute('animation',{'property: position; to: -3 -1 4; dir: normal; dur: 20000; loop: true')
     var x_to= getRandomNumber(-20, 20)
     var y_to= -20
     var z_to= getRandomNumber(10, 20)
-    notDenContainer.setAttribute('animation',{
+    leafContainer.setAttribute('animation',{
       property: 'position',
       to: {
         x:x_to, 
@@ -129,9 +128,14 @@ AFRAME.registerComponent('popup', {
       loop: true,
       })
 
-      notDenLeaf.addEventListener('mousedown', function() {
-        notDenText.setAttribute('visible', true);
+      // this is the event listener where the name is supposed to be made visable on touch but it isn't really working.
+      newLeaf.addEventListener('mousedown', function() {
+        leafText.setAttribute('visible', true);
+        
+        //set timer so that name text disappears after a certain amount of time
         //setTimeout(function(){ notDenText.setAttribute('visible', false);  }, 5000);
+
+        //if you look at the console log you can see that a leaf was touched, even if the name doesn't pop up
         console.log('down '+speciesName+leafIndex);
       });
 
@@ -142,21 +146,21 @@ AFRAME.registerComponent('popup', {
 
     // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
 
-    notDenContainer.setAttribute('position',{
+    leafContainer.setAttribute('position',{
       x: getRandomNumber(-40,40), 
       y: 10, 
       z: getRandomNumber(-40,20)
     })
-    // todo restore y: to 30
+    // todo restore y: to 30 to have leaves start higher up
 
     // use appendChild to add leaf and leaf text to the container
-    notDenContainer.appendChild(notDenLeaf)
-    notDenContainer.appendChild(notDenText)
+    leafContainer.appendChild(newLeaf)
+    leafContainer.appendChild(leafText)
 
   
 
     // use appendChild to add leafContainer to sceneEl 
-    sceneEl.appendChild(notDenContainer);
+    sceneEl.appendChild(leafContainer);
 
     // sceneEl.appendChild(notDenLeaf);
     // sceneEl.appendChild(notDenText);
@@ -175,11 +179,12 @@ AFRAME.registerComponent('popup', {
       // sceneEl.renderer.sortObjects = true;
       var i;
 
-
+  // I am going to create an array for the different leaf images and then generate a random number to select the index 
   // TODO var leafImages = ['#leaf_3', '#leaf_b' ...]
   // this is the for loop that generates the many leaves and adds them to the sceneEl    
   for (i=0; i<100; i++) {
     // TODO rindex = Math.floor(getRandomNumber(0,20))
+    
     addLeaf(sceneEl, i, "#leaf_3", "#leaf_3_normal_map", "Notholithocarpus densiflorus");
     
     //addLeaf(sceneEl, i, leafImages[10], nmaps[10], speciesNames[10]) // but use rindex instead of 10
