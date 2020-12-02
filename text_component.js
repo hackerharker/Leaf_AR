@@ -52,7 +52,7 @@ AFRAME.registerComponent('popup', {
 
   //This is the way I want to add all the leaves (rather than in HTML) but I am getting an error with the animations. 
 
-  function addLeaf(sceneEl, leafIndex) {
+  function addLeaf(sceneEl, leafIndex, imageSrc, normalMap, speciesName) {
  //Create an entity, a notDen leaf
     var notDenLeaf = document.createElement('a-entity');
     notDenLeaf.setAttribute(
@@ -60,8 +60,14 @@ AFRAME.registerComponent('popup', {
       'primitive: plane; width: 2; height: 2');
 
     // notDenLeaf.setAttribute('material', "src:#leaf_3; side:double; transparent: true; normalMap:#leaf_3_normal_map; roughness:1")
-    notDenLeaf.setAttribute('material', 
-      "src:#leaf_3; side:double; alphaTest: .9; transparent: false; normalMap:#leaf_3_normal_map; roughness:1")
+    notDenLeaf.setAttribute('material', {
+      src:imageSrc,
+      side:"double",
+      alphaTest:.9, 
+      transparent: false,
+      normalMap:normalMap,
+      roughness:1,
+    })
 
     //notDenLeaf.setAttribute('animation',{property: "object3D.rotation.x", to: 359.999, dur: getRandomNumber(4000, 12000), easing: "linear", loop: true});
     
@@ -96,7 +102,7 @@ AFRAME.registerComponent('popup', {
     // Create an element, notDen text
     var notDenText = document.createElement('a-entity');
     // Get: core:a-node:error Failure loading node:   TypeError: Cannot read property 'indexOf' of undefined
-    notDenText.setAttribute('text', 'value:Notholithocarpus densiflorus; color:#FFD500; align:center')
+    notDenText.setAttribute('text', 'value:'+ speciesName +'; color:#FFD500; align:center')
     notDenText.setAttribute('look-at', '#camera')
     notDenText.setAttribute('scale', '2 2 2')
     notDenText.setAttribute('position', '0 0 1')
@@ -161,7 +167,7 @@ AFRAME.registerComponent('popup', {
   // this is the for loop that generates the many leaves and adds them to the sceneEl    
   for (i=0; i<1000; i++) {
    
-    addLeaf(sceneEl, i);
+    addLeaf(sceneEl, i, "#leaf_3", "#leaf_3_normal_map", "Notholithocarpus densiflorus");
   }
 
     }
