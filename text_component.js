@@ -131,7 +131,8 @@ AFRAME.registerComponent('popup', {
       // this is the event listener where the name is supposed to be made visable on touch but it isn't really working.
       newLeaf.addEventListener('mousedown', function() {
         leafText.setAttribute('visible', true);
-        
+        //leafNameDiv.innerText = speciesName; //TODO: create leafe name div in html and give it an ID. Use document.getElementById(..) to get it here
+
         //set timer so that name text disappears after a certain amount of time
         //setTimeout(function(){ notDenText.setAttribute('visible', false);  }, 5000);
 
@@ -186,6 +187,20 @@ AFRAME.registerComponent('popup', {
     // TODO rindex = Math.floor(getRandomNumber(0,20))
     
     addLeaf(sceneEl, i, "#leaf_3", "#leaf_3_normal_map", "Notholithocarpus densiflorus");
+
+    var leaf= [
+      "#leaf_1", 
+      "#leaf_2"
+
+    ]
+
+    var normalMap= [
+
+    ]
+
+    var leafName=[
+
+    ]
     
     //addLeaf(sceneEl, i, leafImages[10], nmaps[10], speciesNames[10]) // but use rindex instead of 10
   }
