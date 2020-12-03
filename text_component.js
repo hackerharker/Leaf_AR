@@ -25,9 +25,9 @@ AFRAME.registerComponent('popup', {
       const cameraPos = this.camera.object3D.position
   
       // get distance to camera with those two positions using vector method
-      const distanceToCamera = objPos.distanceTo(cameraPos)
+      // const distanceToCamera = objPos.distanceTo(cameraPos)
       //console.log(distanceToCamera)
-      // console.log(objPos, cameraPos)
+      //console.log(objPos, cameraPos)
 
       // if distance is less than three, change visible (leaf text) to false, otherwise set as true (show leaf text)
       if (distanceToCamera < 3){
@@ -54,9 +54,12 @@ AFRAME.registerComponent('popup', {
   function addLeaf(sceneEl, leafIndex, imageSrc, normalMap, speciesName) {
  //Create an entity, a new leaf
     var newLeaf = document.createElement('a-entity');
-    newLeaf.setAttribute(
-      'geometry', 
-      'primitive: box; width: 2; height: 2');
+    newLeaf.setAttribute('geometry', {
+      primitive: 'box',
+      width: 2, 
+      height: 2,
+    })
+      
 
     // setting the leaf image and corresponding normal map
     newLeaf.setAttribute('material', {
