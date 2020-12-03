@@ -13,4 +13,4 @@ etc.
 
 Please use the following QR code to initiate the augmented reality experience:
 
-![QR code](qr-code.png |width=100)
+![QR code](qr-code.png = 250x)
