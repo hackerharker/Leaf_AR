@@ -56,7 +56,7 @@ AFRAME.registerComponent('popup', {
     var newLeaf = document.createElement('a-entity');
     newLeaf.setAttribute(
       'geometry', 
-      'primitive: plane; width: 2; height: 2');
+      'primitive: box; width: 2; height: 2');
 
     // setting the leaf image and corresponding normal map
     newLeaf.setAttribute('material', {
@@ -103,7 +103,7 @@ AFRAME.registerComponent('popup', {
     var leafText = document.createElement('a-entity');
     leafText.setAttribute('text', 'value:'+ speciesName +'; color:#FFD500; align:center')
     leafText.setAttribute('look-at', '#camera')
-    leafText.setAttribute('scale', '2 2 2')
+    leafText.setAttribute('scale', '4 4 4')
     leafText.setAttribute('position', '0 0 1')
     leafText.setAttribute('visible', false)
     //notDenText.setAttribute('popup', 'parent:#notholithocarpus'+ leafIndex)
@@ -129,7 +129,7 @@ AFRAME.registerComponent('popup', {
       })
 
       // this is the event listener where the name is supposed to be made visable on touch but it isn't really working.
-      newLeaf.addEventListener('mouseenter', function() {
+      newLeaf.addEventListener('click', function() {
         leafText.setAttribute('visible', true);
         //leafNameDiv.innerText = speciesName; //TODO: create leafe name div in html and give it an ID. Use document.getElementById(..) to get it here
 
