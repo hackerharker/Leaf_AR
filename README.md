@@ -6,6 +6,11 @@ Using AR on their phone the user can view burnt leaves, which are brown, warped,
 
 Eventually, the tool can evolve to use the user’s geolocated location, spatial analysis of fires, and machine learning to provide specific leaf identification suggestions. For example, identification suggestions can take into account specific characteristics of different leaf species when burnt, wind directions, locations of fires, proximity to fires, and data on tree types in the locations where there are fires burning.
 
+Thank you to the following people who have shared their photos and narratives with me:
+name name
+name name
+etc.
+
 Please use the following QR code to initiate the augmented reality experience:
 
 ![QR code](qr-code.png)
