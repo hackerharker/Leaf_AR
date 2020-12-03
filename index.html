@@ -1,6 +1,6 @@
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src='text_component.js'></script>
     <!-- this library enables the camera as the background -->
@@ -8,9 +8,10 @@
   </head>
   
   <body>
-    <!-- cursor="rayOrigin: mouse;"  -->
+    <!-- c  -->
 
     <a-scene start="start" renderer="sortObjects:true"
+    cursor="rayOrigin: mouse;"
     embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
       <!-- these are the leaf images and normal maps -->
@@ -97,14 +98,16 @@
 
       <!-- this sets the camera position -->
       <a-entity id= "camera" camera look-controls wasd-controls position="0 1 5">
-        <a-entity
+        <!-- <a-entity
         cursor="fuse: true; fuseTimeout: 500"
         position="0 0 -1"
         geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02"
         material="color: black; shader: flat; opacity: 0"
-        >
-       </a-entity>
-      
+        >-->
+       </a-entity> 
+       <!-- <a-marker cursor='rayOrigin: mouse'>
+    
+      </a-marker> -->
       <!-- these entities set the lighting- both ambient and point lights -->
 
       <!-- <a-entity
