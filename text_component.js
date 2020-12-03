@@ -129,18 +129,18 @@ AFRAME.registerComponent('popup', {
       })
 
       // this is the event listener where the name is supposed to be made visable on touch but it isn't really working.
-      newLeaf.addEventListener('mousedown', function() {
+      newLeaf.addEventListener('mouseenter', function() {
         leafText.setAttribute('visible', true);
         //leafNameDiv.innerText = speciesName; //TODO: create leafe name div in html and give it an ID. Use document.getElementById(..) to get it here
 
         //set timer so that name text disappears after a certain amount of time
-        //setTimeout(function(){ notDenText.setAttribute('visible', false);  }, 5000);
+        setTimeout(function(){ leafText.setAttribute('visible', false);  }, 1000);
 
         //if you look at the console log you can see that a leaf was touched, even if the name doesn't pop up
         console.log('down '+speciesName+leafIndex);
       });
 
-      // notDenLeaf.addEventListener('mouseup', function() {
+      // notDenLeaf.addEventListener('mouseleave', function() {
       //   //notDenText.setAttribute('visible', false);
       //   console.log('up '+speciesName+leafIndex);
       // });
