@@ -84,7 +84,7 @@
     newLeaf.setAttribute('animation__y',{
       property: "object3D.rotation.y", 
       to: 359.999, 
-      dur: getRandomNumber(11000, 12000), // TODO change 10000 back to 40000
+      dur: getRandomNumber(4000, 12000), // TODO change 10000 back to 40000
       easing: "linear", 
       loop: true
     });
@@ -130,7 +130,13 @@
       dur: getRandomNumber(30000, 50000), 
       loop: true,
       })
+    // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
 
+    leafContainer.setAttribute('position',{
+      x: getRandomNumber(-40,40), 
+      y: 20, 
+      z: getRandomNumber(-40,20)
+    })
       // this is the event listener where the name is supposed to be made visable on touch but it isn't really working.
       newLeaf.addEventListener('mouseenter', function() {
         leafText.setAttribute('visible', true);
@@ -148,13 +154,7 @@
       //   console.log('up '+speciesName+leafIndex);
       // });
 
-    // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
 
-    leafContainer.setAttribute('position',{
-      x: getRandomNumber(-40,40), 
-      y: 10, 
-      z: getRandomNumber(-40,20)
-    })
     // todo restore y: to 30 to have leaves start higher up
 
     // use appendChild to add leaf and leaf text to the container
@@ -205,9 +205,9 @@
     "Quercus kelloggii",
 
   ]
- 
+ var numberOfLeaves=500
   // this is the for loop that generates the many leaves and adds them to the sceneEl    
-  for (i=0; i<100; i++) {
+  for (i=0; i<numberOfLeaves; i++) {
   rindex = Math.floor(getRandomNumber(0,4))
     
     addLeaf(sceneEl, i, leafImages[rindex], normalMap[rindex], leafName[rindex])
