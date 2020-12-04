@@ -138,7 +138,7 @@
       z: getRandomNumber(-40,20)
     })
       // this is the event listener where the name is supposed to be made visable on touch but it isn't really working.
-      newLeaf.addEventListener('mouseenter', function() {
+      newLeaf.addEventListener('mousedown', function() {
         leafText.setAttribute('visible', true);
         //leafNameDiv.innerText = speciesName; //TODO: create leafe name div in html and give it an ID. Use document.getElementById(..) to get it here
 
