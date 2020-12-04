@@ -55,7 +55,7 @@ AFRAME.registerComponent('popup', {
  //Create an entity, a new leaf
     var newLeaf = document.createElement('a-entity');
     newLeaf.setAttribute('geometry', {
-      primitive: 'box',
+      primitive: 'plane',
       width: 2, 
       height: 2,
     })
