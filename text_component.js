@@ -1,48 +1,48 @@
 
-console.log("hello")
-AFRAME.registerComponent('popup', {
-    schema: {
-        parent: {type:"string"}
-    },
-    init: function () {
-      // init is called when object is created
-      console.log('popup: looks good')
+// console.log("hello")
+// AFRAME.registerComponent('popup', {
+//     schema: {
+//         parent: {type:"string"}
+//     },
+//     init: function () {
+//       // init is called when object is created
+//       console.log('popup: looks good')
   
-      // define a camera object so we don't have to query it every time
-      const sceneEl = document.querySelector('a-scene');
-      const camera = sceneEl.querySelector('#camera');
-      const parentObject=sceneEl.querySelector(this.attrValue.parent)
-      this.camera = camera
-      this.parentObject= parentObject
-    },
+//       // define a camera object so we don't have to query it every time
+//       const sceneEl = document.querySelector('a-scene');
+//       const camera = sceneEl.querySelector('#camera');
+//       const parentObject=sceneEl.querySelector(this.attrValue.parent)
+//       this.camera = camera
+//       this.parentObject= parentObject
+//     },
 
-    update: function () {},
-    tick: function () {
-      // get position of self
-      const objPos = this.parentObject.object3D.position
+//     update: function () {},
+//     tick: function () {
+      // // get position of self
+      // const objPos = this.parentObject.object3D.position
   
-      // get position of camera object
-      const cameraPos = this.camera.object3D.position
+      // // get position of camera object
+      // const cameraPos = this.camera.object3D.position
   
-      // get distance to camera with those two positions using vector method
-      // const distanceToCamera = objPos.distanceTo(cameraPos)
-      //console.log(distanceToCamera)
-      //console.log(objPos, cameraPos)
+      // // get distance to camera with those two positions using vector method
+      // // const distanceToCamera = objPos.distanceTo(cameraPos)
+      // //console.log(distanceToCamera)
+      // //console.log(objPos, cameraPos)
 
-      // if distance is less than three, change visible (leaf text) to false, otherwise set as true (show leaf text)
-      if (distanceToCamera < 3){
-        this.el.object3D.visible = true;
-      } else {
-        this.el.object3D.visible = false;
-      }
+      // // if distance is less than three, change visible (leaf text) to false, otherwise set as true (show leaf text)
+      // if (distanceToCamera < 3){
+      //   this.el.object3D.visible = true;
+      // } else {
+      //   this.el.object3D.visible = false;
+      // }
   
-    },
+  //   },
   
-    // behaviors that any object has
-    remove: function () {},
-    pause: function () {},
-    play: function () {}
-  });
+  //   // behaviors that any object has
+  //   remove: function () {},
+  //   pause: function () {},
+  //   play: function () {}
+  // });
 
 
   // Random number between min (inclusive) and max (exclusive)
@@ -56,8 +56,8 @@ AFRAME.registerComponent('popup', {
     var newLeaf = document.createElement('a-entity');
     newLeaf.setAttribute('geometry', {
       primitive: 'plane',
-      width: 2, 
-      height: 2,
+      width: 3, 
+      height: 3,
     })
       
 
@@ -132,7 +132,7 @@ AFRAME.registerComponent('popup', {
       })
 
       // this is the event listener where the name is supposed to be made visable on touch but it isn't really working.
-      newLeaf.addEventListener('mousedown', function() {
+      newLeaf.addEventListener('mouseenter', function() {
         leafText.setAttribute('visible', true);
         //leafNameDiv.innerText = speciesName; //TODO: create leafe name div in html and give it an ID. Use document.getElementById(..) to get it here
 
@@ -184,26 +184,35 @@ AFRAME.registerComponent('popup', {
       var i;
 
   // I am going to create an array for the different leaf images and then generate a random number to select the index 
-  // TODO var leafImages = ['#leaf_3', '#leaf_b' ...]
+  var leafImages= [
+    "#leaf_1", 
+    "#leaf_2", 
+    "#leaf_3",
+    "#leaf_4",
+  ]
+
+  var normalMap= [
+    "#leaf_1_normal_map", 
+    "#leaf_2_normal_map", 
+    "#leaf_3_normal_map",
+    "#leaf_4_normal_map",
+  ]
+
+  var leafName=[
+    "Sequoia sempervirens", 
+    "Quercus kelloggii",
+    "Notholithocarpus densiflorus",
+    "Quercus kelloggii",
+
+  ]
+ 
   // this is the for loop that generates the many leaves and adds them to the sceneEl    
   for (i=0; i<100; i++) {
-    // TODO rindex = Math.floor(getRandomNumber(0,20))
+  rindex = Math.floor(getRandomNumber(0,4))
     
-    addLeaf(sceneEl, i, "#leaf_3", "#leaf_3_normal_map", "Notholithocarpus densiflorus");
+    addLeaf(sceneEl, i, leafImages[rindex], normalMap[rindex], leafName[rindex])
 
-    var leaf= [
-      "#leaf_1", 
-      "#leaf_2"
 
-    ]
-
-    var normalMap= [
-
-    ]
-
-    var leafName=[
-
-    ]
     
     //addLeaf(sceneEl, i, leafImages[10], nmaps[10], speciesNames[10]) // but use rindex instead of 10
   }
