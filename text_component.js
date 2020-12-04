@@ -127,7 +127,7 @@
         z:z_to,
       },
       dir: 'normal', 
-      dur: getRandomNumber(30000, 50000), 
+      dur: getRandomNumber(10000, 50000), 
       loop: true,
       })
     // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
