@@ -183,12 +183,15 @@
       // sceneEl.renderer.sortObjects = true;
       var i;
 
-  // I am going to create an array for the different leaf images and then generate a random number to select the index 
+  // Array for the different leaf images and then generate a random number to select the index 
   var leafImages= [
     "#leaf_1", 
     "#leaf_2", 
     "#leaf_3",
     "#leaf_4",
+    "#leaf_5", 
+    "#leaf_7",
+    "#leaf_7",
   ]
 
   var normalMap= [
@@ -196,6 +199,9 @@
     "#leaf_2_normal_map", 
     "#leaf_3_normal_map",
     "#leaf_4_normal_map",
+    "#leaf_5_normal_map", 
+    "#leaf_6_normal_map",
+    "#leaf_7_normal_map",
   ]
 
   var leafName=[
@@ -203,6 +209,10 @@
     "Quercus kelloggii",
     "Notholithocarpus densiflorus",
     "Quercus kelloggii",
+    "Quercus agrifolia",
+    "Quercus douglasii",
+    "Quercus agrifolia",
+    "Quercus douglasii"
 
   ]
  var numberOfLeaves=500
