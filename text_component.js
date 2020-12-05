@@ -191,7 +191,10 @@
     "#leaf_4",
     "#leaf_5", 
     "#leaf_7",
-    "#leaf_7",
+    // "#leaf_8",
+    // "#leaf_9", 
+    // "#leaf_10",
+    // "#leaf_11"
   ]
 
   var normalMap= [
@@ -202,6 +205,9 @@
     "#leaf_5_normal_map", 
     "#leaf_6_normal_map",
     "#leaf_7_normal_map",
+    // "#leaf_8_normal_map", 
+    // "#leaf_9_normal_map",
+    // "#leaf_10_normal_map",
   ]
 
   var leafName=[
@@ -211,14 +217,13 @@
     "Quercus kelloggii",
     "Quercus agrifolia",
     "Quercus douglasii",
-    "Quercus agrifolia",
-    "Quercus douglasii"
+    "Quercus douglasii",
 
   ]
  var numberOfLeaves=500
   // this is the for loop that generates the many leaves and adds them to the sceneEl    
   for (i=0; i<numberOfLeaves; i++) {
-  rindex = Math.floor(getRandomNumber(0,4))
+  rindex = Math.floor(getRandomNumber(0,6))
     
     addLeaf(sceneEl, i, leafImages[rindex], normalMap[rindex], leafName[rindex])
 
