@@ -12,7 +12,7 @@ Please use the following QR code to initiate the augmented reality experience:
 
 Thank you to the following people who have shared their photos and stories with me for this project:
 
-<br>Barbara Harker
+Barbara Harker
 <br>Chris Holmes
 <br>Christine Jennings
 <br>Denise Gilmer
