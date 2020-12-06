@@ -14,13 +14,13 @@ Thank you to the following people who have shared their photos and stories with 
 
 <br>Barbara Harker
 <br>Chris Holmes
-Christine Jennings
-Denise Gilmer
-Draper-Swift
-Heide Keeble
-Jennifer Jewell
-Karen Gebbia
-Kim Armstrong
-Michelle Halbur
-Sarah Reid
-Vivian Watkins Lenzini
+<br>Christine Jennings
+<br>Denise Gilmer
+<br>Draper-Swift
+<br>Heide Keeble
+<br>Jennifer Jewell
+<br>Karen Gebbia
+<br>Kim Armstrong
+<br>Michelle Halbur
+<br>Sarah Reid
+<br>Vivian Watkins Lenzini
