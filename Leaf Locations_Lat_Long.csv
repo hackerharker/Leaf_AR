@@ -1,3 +1,13 @@
-Index,Leaf,Address,latitude,longitude
-1,"Halbur, Michelle",Santa Rosa,38.4404,-122.714
-2,"Harker, Barbara",,36.95621,-122.5081605
+Index,photographer_name,address,latitude,longitude,fire_name,image_link
+1,"Halbur, Michelle",Santa Rosa,38.4404,-122.7141,,
+2,"Harker, Barbara",,36.95621,-122.5081605,CZU Lightning Complex,
+3,Chris Holmes,,,,,
+4,Christine Jennings,,,,,
+5,Denise Gilmer,,,,,
+6,Draper-Swift,,,,,
+7,Heide Keeble,,,,,
+8,Jennifer Jewell,,,,,
+9,Karen Gebbia,,,,,
+10,Kim Armstrong,,,,,
+11,Sarah Reid,,,,,
+12,Vivian Watkins Lenzini,,,,,
