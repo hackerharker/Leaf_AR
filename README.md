@@ -10,7 +10,7 @@ Please use the following QR code to initiate the augmented reality experience:
 
 <img src="qr-code.png" alt="Your image title" width="250"/>
 
-Thank you to the following people who have shared their photos and stories with me for this project:
+Thank you to the following people who shared their photos and stories with me for this project:
 
 Barbara Harker
 <br>Chris Holmes
@@ -18,9 +18,10 @@ Barbara Harker
 <br>Denise Gilmer
 <br>Draper-Swift
 <br>Heide Keeble
-<br>Jennifer Jewell
+<br>Jennifer Jewell, Cultivating Place
 <br>Karen Gebbia
 <br>Kim Armstrong
+<br>Loren Roman-Nunez
 <br>Michelle Halbur
 <br>Sarah Reid
 <br>Vivian Watkins Lenzini

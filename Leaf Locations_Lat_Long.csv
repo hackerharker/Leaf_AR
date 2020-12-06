@@ -1,13 +1,15 @@
-Index,photographer_name,address,latitude,longitude,fire_name,image_link
-1,"Halbur, Michelle",Santa Rosa,38.4404,-122.7141,,
-2,"Harker, Barbara",,36.95621,-122.5081605,CZU Lightning Complex,
-3,Chris Holmes,,,,,
-4,Christine Jennings,,,,,
-5,Denise Gilmer,,,,,
-6,Draper-Swift,,,,,
-7,Heide Keeble,,,,,
-8,Jennifer Jewell,,,,,
-9,Karen Gebbia,,,,,
-10,Kim Armstrong,,,,,
-11,Sarah Reid,,,,,
-12,Vivian Watkins Lenzini,,,,,
+Index,image_credit,species,address,latitude,longitude,fire_name,image_link,image_text,date
+1,Michelle Halbur,,Santa Rosa,38.4404,-122.7141,Walbridge Fire,,,
+2,Michelle Halbur,,Santa Rosa,38.4404,-122.7141,Glass Fire,,,
+3,Barbara Harker,,,36.95621,-122.5081605,CZU Lightning Complex,,,
+4,Chris Holmes,,Sebastopol ,,,Glass Fire,,,28-Sep
+5,Christine Jennings,,,,,,,,
+6,Denise Gilmer,,,,,,,,
+7,Draper-Swift,,,,,,,,
+8,Heide Keeble,,,,,Walbridge Fire,,"I had a handful of ash leaves in my yard from the Walbridge fire, which was only a couple miles away from my house.",
+9,"Jennifer Jewell, Cultivating Place",,,,,,,"Messages in bronze and burnt offerings blown in on fiery thermals from 8-10 miles away, John estimates (big leaf maple, tan oak, bay, black oak, perhaps madrone?). Crucible times and places",12-Sep-20
+10,Karen Gebbia,,,,,,,,
+11,Kim Armstrong,,Oroville Wildlife Area,,,Bear Fire,,"Not my property, but the Oroville Wildlife Area, September 15. This would have been from the Bear fire burning up by Oroville Lake. Perhaps canyon live oak and black oak? Not sure though",9/15/20
+12,Sarah Reid,,,,,,,,
+13,Vivian Watkins Lenzini,,,,,,,,
+14,Loren Roman- Nunez,,,,,LNU Lightning Complex,,,
