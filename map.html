@@ -28,13 +28,13 @@
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/hackerharker/ckgcnnycu54su1blubcjkw6bs', // replace this with your style URL
-      center: [-122.4194, 37.7749],
+      center: [-122.7141, 38.4404],
       zoom: 7.7
     });
     // code from the next step will go here
     map.on('click', function(e) {
   var features = map.queryRenderedFeatures(e.point, {
-    layers: ['leaf-locations-lat-long-7z5otp'] // replace this with the name of the layer
+    layers: ['leaf-locations-lat-long-5tw2jj'] // replace this with the name of the layer
   });
 
   if (!features.length) {
@@ -45,12 +45,12 @@
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h3>' + feature.properties.Leaf + '</h3><p>' + feature.properties.description + '<img src="../leaf_images/leaf_1.png"></p>')
+    .setHTML('<h3>' + feature.properties.species + '</h3><p>' + '<img src= "'+ feature.properties.image_link + '"> </p>')
     .addTo(map);
 });
-var imageName = 'myleaf.png'
-'<img src="' + feature.properties.imageName + '"">'
-'<img src="myleaf.png">'
+// var imageName = 'myleaf.png'
+// '<img src="' + feature.properties.imageName + '"">'
+// '<img src="myleaf.png">'
     </script>
   </body>
 </html>

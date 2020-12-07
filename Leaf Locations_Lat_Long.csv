@@ -1,15 +1,15 @@
-Index,image_credit,species,address,latitude,longitude,fire_name,image_link,image_text,date
-1,Michelle Halbur,,Santa Rosa,38.4404,-122.7141,Walbridge Fire,map_images/halbur_walbridge.jpg,,
-2,Michelle Halbur,,Santa Rosa,38.4404,-122.7141,Glass Fire,map_images/,,
-3,Barbara Harker,,,36.95621,-122.5081605,CZU Lightning Complex,map_images/,,
-4,Chris Holmes,,Sebastopol ,,,Glass Fire,map_images/,,28-Sep
-5,Christine Jennings,,,,,,map_images/,,
-6,Denise Gilmer,,,,,,map_images/,,
-7,Draper-Swift,,,,,,map_images/,,
-8,Heide Keeble,,,,,Walbridge Fire,map_images/,"I had a handful of ash leaves in my yard from the Walbridge fire, which was only a couple miles away from my house.",
-9,"Jennifer Jewell, Cultivating Place",,,,,,map_images/,"Messages in bronze and burnt offerings blown in on fiery thermals from 8-10 miles away, John estimates (big leaf maple, tan oak, bay, black oak, perhaps madrone?). Crucible times and places",12-Sep-20
-10,Karen Gebbia,,,,,,map_images/,,
-11,Kim Armstrong,,Oroville Wildlife Area,,,Bear Fire,map_images/armstrong.jpg,"Not my property, but the Oroville Wildlife Area, September 15. This would have been from the Bear fire burning up by Oroville Lake. Perhaps canyon live oak and black oak? Not sure though",9/15/20
-12,Sarah Reid,,,,,,map_images/,,
-13,Vivian Watkins Lenzini,,,,,,map_images/Vivian_Watkins.jpg,,
-14,Loren Roman- Nunez,,,,,LNU Lightning Complex,,,
+Index,image_credit,species,address,latitude,longitude,fire_name,image_link,image_text,date,other
+1,Michelle Halbur,,Santa Rosa,38.4404,-122.7141,Walbridge Fire,map_images/halbur_walbridge.jpg,,,
+2,Michelle Halbur,,Santa Rosa,38.4404,-122.7141,Glass Fire,map_images/,,,
+3,Barbara Harker,,,36.95621,-122.5081605,CZU Lightning Complex,map_images/,,,
+4,Chris Holmes,,Sebastopol ,,,Glass Fire,map_images/,,28-Sep,
+5,Christine Jennings,,,,,,map_images/,,,
+6,Denise Gilmer,,,,,,map_images/,,,
+7,Laura Nininger Devlin,"Quercus douglasii, ???",,,,,map_images/Laura_Nininger_Devlin.jpg,"My collection - scrub oak, holly, ?? Bay?",,
+8,Heide Keeble,,,,,Walbridge Fire,map_images/,"I had a handful of ash leaves in my yard from the Walbridge fire, which was only a couple miles away from my house.",,
+9,"Jennifer Jewell, Cultivating Place",,,,,,map_images/,"Messages in bronze and burnt offerings blown in on fiery thermals from 8-10 miles away, John estimates (big leaf maple, tan oak, bay, black oak, perhaps madrone?). Crucible times and places",12-Sep-20,
+10,Karen Gebbia,,,,,,map_images/,,,
+11,Kim Armstrong,,Oroville Wildlife Area,,,Bear Fire,map_images/armstrong.jpg,"Not my property, but the Oroville Wildlife Area, September 15. This would have been from the Bear fire burning up by Oroville Lake. Perhaps canyon live oak and black oak? Not sure though",9/15/20,
+12,Sarah Reid,,,,,,map_images/reid_glass_fire.jpg,,,
+13,Vivian Watkins Lenzini,,,,,,map_images/Vivian_Watkins.jpg,,,
+14,Loren Roman- Nunez,,,,,LNU Lightning Complex,,,,
