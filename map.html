@@ -33,8 +33,8 @@
     });
     // code from the next step will go here
     map.on('click', function(e) {
-  var features = map.queryRenderedFeatures(e.point, {
-    layers: ['leaf-locations-lat-long-5t7780'] // replace this with the name of the layer
+    var features = map.queryRenderedFeatures(e.point, {
+    layers: ['leaf-locations'] // replace this with the name of the layer
   });
 
   if (!features.length) {
@@ -42,11 +42,11 @@
   }
 
   var feature = features[0];
-  console.log('<h3>' + feature.properties.species + '</h3><p>' + '<img src= "'+ feature.properties.image_link + '"> </p>')
+
 
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
-    .setHTML('<h3>' + feature.properties.species + '</h3><p>' + '<img src= "'+ feature.properties.image_link + '" width="200"> </p>')
+    .setHTML('<h3>' + feature.properties.species + '</h3><p style="font-size:10px">from the '+feature.properties.fire_name+'</p><p>' + '<img src= "'+ feature.properties.image_link + '" width="200"> </p><p style="font-size:10px">used with permission of '+feature.properties.image_credit+'</p>')
     .addTo(map);
 });
 // var imageName = 'myleaf.png'
