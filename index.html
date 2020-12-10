@@ -5,10 +5,21 @@
     <script src='text_component.js'></script>
     <!-- this library enables the camera as the background -->
     <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet"> 
+    <style>
+      #overlay {
+        position: absolute;
+        top: 10;
+        left: 10;
+        z-index: 999;
+      }
+    </style>
   </head>
   
   <body>
-    <!-- c  -->
+
+    <div id="overlay" style="font-family: 'Varela Round', sans-serif; color:FFD500";>Identify a leaf by tapping on it.</div>
 
     <a-scene start="start" renderer="sortObjects:true"
     cursor="rayOrigin: mouse;"
@@ -18,10 +29,10 @@
       <a-assets>
         <!-- leaf 1 -->
         <img src="leaf_images/leaf_1.png" id="leaf_1">
-        <img src="leaf_images/leaf_1_normal_map.png" id="leaf 1 normal map" />
+        <img src="leaf_images/leaf_1_normal_map.png" id="leaf_1_normal_map" />
         <!-- leaf 2 -->
         <img src="leaf_images/leaf_2.png" id="leaf_2">
-        <img src="leaf_images/leaf_2_normal_map.png" id="leaf 2 normal map"/>
+        <img src="leaf_images/leaf_2_normal_map.png" id="leaf_2_normal_map"/>
         <!-- leaf 3 -->
         <img src="leaf_images/leaf_3.png" id="leaf_3">
         <img src="leaf_images/leaf_3_normal_map.png" id="leaf_3_normal_map" />
@@ -43,12 +54,11 @@
         <!-- leaf 9 -->
         <img src="leaf_images/leaf_9.png" id="leaf_9" />
         <img src="leaf_images/leaf_9_normal_map.png" id="leaf_9_normal_map" />
-        <!-- leaf 10 -->
-        <img src="leaf_images/leaf_10.png" id="leaf_10" />
-        <img src="leaf_images/leaf_10_normal_map.png" id="leaf_10_normal_map" />
+
 
         
       </a-assets>
+      
 
       <!-- to trigger animation with a marker image use the following -->
       <!-- <a-nft
@@ -143,6 +153,8 @@
       <a-entity light="type: point; intensity: 1; "
       position="0 -200 100"></a-entity>
 
+
+      
 
       <!-- </a-nft>  -->
       <!-- <a-entity camera look-controls wasd-controls position="0 1 5"> </a-entity> -->
