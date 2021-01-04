@@ -1,50 +1,4 @@
 
-// console.log("hello")
-// AFRAME.registerComponent('popup', {
-//     schema: {
-//         parent: {type:"string"}
-//     },
-//     init: function () {
-//       // init is called when object is created
-//       console.log('popup: looks good')
-  
-//       // define a camera object so we don't have to query it every time
-//       const sceneEl = document.querySelector('a-scene');
-//       const camera = sceneEl.querySelector('#camera');
-//       const parentObject=sceneEl.querySelector(this.attrValue.parent)
-//       this.camera = camera
-//       this.parentObject= parentObject
-//     },
-
-//     update: function () {},
-//     tick: function () {
-      // // get position of self
-      // const objPos = this.parentObject.object3D.position
-  
-      // // get position of camera object
-      // const cameraPos = this.camera.object3D.position
-  
-      // // get distance to camera with those two positions using vector method
-      // // const distanceToCamera = objPos.distanceTo(cameraPos)
-      // //console.log(distanceToCamera)
-      // //console.log(objPos, cameraPos)
-
-      // // if distance is less than three, change visible (leaf text) to false, otherwise set as true (show leaf text)
-      // if (distanceToCamera < 3){
-      //   this.el.object3D.visible = true;
-      // } else {
-      //   this.el.object3D.visible = false;
-      // }
-  
-  //   },
-  
-  //   // behaviors that any object has
-  //   remove: function () {},
-  //   pause: function () {},
-  //   play: function () {}
-  // });
-
-
   // Random number between min (inclusive) and max (exclusive)
   function getRandomNumber(min, max) {
     return Math.random() * (max - min) + min; 
@@ -98,13 +52,10 @@
       loop: true
     });
 
-    //newLeaf.setAttribute('animation__RY', 'property: object3D.rotation.y; to: 359.999; dur: 600; easing: linear; loop: true')
-    //newLeaf.setAttribute('animation__RZ', 'property: object3D.rotation.z; to: 359.999 ; dur: 8000; easing: linear; loop: true')
-
 
     // create an element, leafText for the species name
     var leafText = document.createElement('a-entity');
-    leafText.setAttribute('text', 'value:'+ speciesName +'; color:#FFD500; align:center')
+    leafText.setAttribute('text', 'value:'+ speciesName +'; color:#FFD500; align:center;font-family: "Inconsolata", monospace;')
     leafText.setAttribute('look-at', '#camera')
     leafText.setAttribute('scale', '4 4 4')
     leafText.setAttribute('position', '0 0 1')
@@ -137,25 +88,22 @@
       y: 20, 
       z: getRandomNumber(-40,20)
     })
-      // this is the event listener where the name is supposed to be made visable on touch but it isn't really working.
+      // this is the event listener where the name is made visable when a leaf is tapped
       newLeaf.addEventListener('mousedown', function() {
-        leafText.setAttribute('visible', true);
+        var overlay= document.getElementById('overlay')
+        overlay.innerText = speciesName;
+        //This makes the leaf name visible over the leaf and it's hidden now
+        // leafText.setAttribute('visible', true);
         //leafNameDiv.innerText = speciesName; //TODO: create leafe name div in html and give it an ID. Use document.getElementById(..) to get it here
 
         //set timer so that name text disappears after a certain amount of time
-        setTimeout(function(){ leafText.setAttribute('visible', false);  }, 1000);
+        // setTimeout(function(){ leafText.setAttribute('visible', false);  }, 1000);
+        setTimeout(function(){overlay.innerText = "Identify a leaf by tapping on it.";}, 20000);
+
 
         //if you look at the console log you can see that a leaf was touched, even if the name doesn't pop up
         console.log('down '+speciesName+leafIndex);
       });
-
-      // notDenLeaf.addEventListener('mouseleave', function() {
-      //   //notDenText.setAttribute('visible', false);
-      //   console.log('up '+speciesName+leafIndex);
-      // });
-
-
-    // todo restore y: to 30 to have leaves start higher up
 
     // use appendChild to add leaf and leaf text to the container
     leafContainer.appendChild(newLeaf)
@@ -166,8 +114,6 @@
     // use appendChild to add leafContainer to sceneEl 
     sceneEl.appendChild(leafContainer);
 
-    // sceneEl.appendChild(notDenLeaf);
-    // sceneEl.appendChild(notDenText);
   }
 
   AFRAME.registerComponent('start', {
@@ -226,16 +172,19 @@
       
       console.log("leaf index="+i + leafImages[i]+ normalMap[i]+ leafName[i])
   }
- var numberOfLeaves=500
-  // this is the for loop that generates the many leaves and adds them to the sceneEl    
+ 
+
+
+  
+
+  var numberOfLeaves=500
+  
+ // this is the for loop that generates the many leaves and adds them to the sceneEl    
   for (i=0; i<numberOfLeaves; i++) {
   rindex = Math.floor(getRandomNumber(0,9))
     
     addLeaf(sceneEl, i, leafImages[rindex], normalMap[rindex], leafName[rindex])
-    //console.log("leaf index="+rindex + leafImages[rindex]+ normalMap[rindex]+ leafName[rindex])
 
-    
-    //addLeaf(sceneEl, i, leafImages[10], nmaps[10], speciesNames[10]) // but use rindex instead of 10
   }
 
     }
