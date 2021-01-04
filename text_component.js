@@ -90,15 +90,14 @@
     })
       // this is the event listener where the name is made visable when a leaf is tapped
       newLeaf.addEventListener('mousedown', function() {
-        var overlay= document.getElementById('overlay')
-        overlay.innerText = speciesName;
+        //overlay variable finds the element from the html, where the element is the text that has either the species name or the tap on leaf prompt
+        var text_overlay= document.getElementById('text_overlay')
+        text_overlay.innerText = speciesName;
         //This makes the leaf name visible over the leaf and it's hidden now
         // leafText.setAttribute('visible', true);
-        //leafNameDiv.innerText = speciesName; //TODO: create leafe name div in html and give it an ID. Use document.getElementById(..) to get it here
 
         //set timer so that name text disappears after a certain amount of time
-        // setTimeout(function(){ leafText.setAttribute('visible', false);  }, 1000);
-        setTimeout(function(){overlay.innerText = "Identify a leaf by tapping on it.";}, 20000);
+        setTimeout(function(){text_overlay.innerText = "Identify a leaf by tapping on it.";}, 20000);
 
 
         //if you look at the console log you can see that a leaf was touched, even if the name doesn't pop up
@@ -168,15 +167,12 @@
     "Umbellularia californica",
   ]
 
-  for (i=0; i<leafImages.length; i++) {
+  // This is for debugging
+  // for (i=0; i<leafImages.length; i++) {
       
-      console.log("leaf index="+i + leafImages[i]+ normalMap[i]+ leafName[i])
-  }
- 
-
-
-  
-
+  //     console.log("leaf index="+i + leafImages[i]+ normalMap[i]+ leafName[i])
+  // }
+   
   var numberOfLeaves=500
   
  // this is the for loop that generates the many leaves and adds them to the sceneEl    
