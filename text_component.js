@@ -38,7 +38,7 @@
     newLeaf.setAttribute('animation__y',{
       property: "object3D.rotation.y", 
       to: 359.999, 
-      dur: getRandomNumber(4000, 12000), // TODO change 10000 back to 40000
+      dur: getRandomNumber(4000, 12000), // 
       easing: "linear", 
       loop: true
     });
