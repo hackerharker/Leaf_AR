@@ -67,9 +67,9 @@
     var leafContainer = document.createElement('a-entity');
     leafContainer.setAttribute('id', 'notholithocarpus'+ leafIndex)
     // leafContainer.setAttribute('animation',{'property: position; to: -3 -1 4; dir: normal; dur: 20000; loop: true')
-    var x_to= getRandomNumber(-20, 20)
-    var y_to= -20
-    var z_to= getRandomNumber(10, 20)
+    var x_to= getRandomNumber(-80, 80)
+    var y_to= -40
+    var z_to= getRandomNumber(-80, 80)
     leafContainer.setAttribute('animation',{
       property: 'position',
       to: {
@@ -78,15 +78,15 @@
         z:z_to,
       },
       dir: 'normal', 
-      dur: getRandomNumber(10000, 50000), 
+      dur: getRandomNumber(20000, 80000), 
       loop: true,
       })
     // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
 
     leafContainer.setAttribute('position',{
-      x: getRandomNumber(-40,40), 
-      y: 20, 
-      z: getRandomNumber(-40,20)
+      x: getRandomNumber(-80,80), 
+      y: 15, 
+      z: getRandomNumber(-80, 80)
     })
       // this is the event listener where the name is made visable when a leaf is tapped
       newLeaf.addEventListener('mousedown', function() {
@@ -173,7 +173,7 @@
   //     console.log("leaf index="+i + leafImages[i]+ normalMap[i]+ leafName[i])
   // }
    
-  var numberOfLeaves=500
+  var numberOfLeaves=3000
   
  // this is the for loop that generates the many leaves and adds them to the sceneEl    
   for (i=0; i<numberOfLeaves; i++) {
