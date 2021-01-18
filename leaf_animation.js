@@ -85,7 +85,7 @@
 
     leafContainer.setAttribute('position',{
       x: getRandomNumber(-40,40), 
-      y: 15, 
+      y: 20, 
       z: getRandomNumber(-40, 20)
     })
       // this is the event listener where the name is made visable when a leaf is tapped
