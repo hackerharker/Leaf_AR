@@ -142,6 +142,13 @@
     "#leaf_10",
     "#leaf_11",
     "#leaf_12",
+    "#leaf_13",
+    "#leaf_14",
+    "#leaf_15",
+    "#leaf_16",
+    "#leaf_17",
+    "#leaf_18",
+    "#leaf_19",
  
   ]
 
@@ -158,6 +165,13 @@
     "#leaf_10_normal_map",
     "#leaf_11_normal_map",
     "#leaf_12_normal_map",
+    "#leaf_13_normal_map",
+    "#leaf_14_normal_map",
+    "#leaf_15_normal_map",
+    "#leaf_16_normal_map",
+    "#leaf_17_normal_map",
+    "#leaf_18_normal_map",
+    "#leaf_19_normal_map",
 
   ]
 
@@ -174,6 +188,13 @@
     "Notholithocarpus densiflorus", 
     "Quercus douglasii",
     "Notholithocarpus densiflorus",
+    "Umbellularia californica",
+    "Quercus kelloggii",
+    "Quercus douglasii",
+    "Umbellularia californica",
+    "Umbellularia californica",
+    "unknown",
+    "Umbellularia californica",
   ]
 
   // This is for debugging
@@ -186,7 +207,7 @@
   
  // this is the for loop that generates the many leaves and adds them to the sceneEl    
   for (i=0; i<numberOfLeaves; i++) {
-  rindex = Math.floor(getRandomNumber(0,12))
+  rindex = Math.floor(getRandomNumber(0,19))
     
     addLeaf(sceneEl, i, leafImages[rindex], normalMap[rindex], leafName[rindex])
 
