@@ -149,6 +149,7 @@
     "#leaf_17",
     "#leaf_18",
     "#leaf_19",
+    "#leaf_20",
  
   ]
 
@@ -172,6 +173,7 @@
     "#leaf_17_normal_map",
     "#leaf_18_normal_map",
     "#leaf_19_normal_map",
+    "#leaf_20_normal_map",
 
   ]
 
@@ -195,6 +197,7 @@
     "Umbellularia californica",
     "unknown",
     "Umbellularia californica",
+    "Quercus wislizeni",
   ]
 
   // This is for debugging
