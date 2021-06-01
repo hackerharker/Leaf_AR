@@ -5,7 +5,7 @@
   }
 
   //this function generates the leaves 
-  function addLeaf(sceneEl, leafIndex, imageSrc, normalMap, speciesName) {
+  function addLeaf(sceneEl, leafIndex, imageSrc, normalMap, speciesName, isStartLeaf) {
  //Create an entity, a new leaf
     var newLeaf = document.createElement('a-entity');
     newLeaf.setAttribute('geometry', {
@@ -63,6 +63,7 @@
     //notDenText.setAttribute('popup', 'parent:#notholithocarpus'+ leafIndex)
 
 
+
     // Create a element, leafContainer and set attributes (animation, id, etc.)
     var leafContainer = document.createElement('a-entity');
     leafContainer.setAttribute('id', 'notholithocarpus'+ leafIndex)
@@ -70,6 +71,19 @@
     var x_to= getRandomNumber(-20, 20)
     var y_to= -20
     var z_to= getRandomNumber(10, 20)
+    
+    // Have a few leaves start lower down and not loop
+    var loopAnimation= true 
+    var yStart= 19
+    var xStart= getRandomNumber(-40,40)
+    var zStart= getRandomNumber(-40, 20)
+    if(isStartLeaf){
+      yStart= getRandomNumber(10, 0)
+      zStart= getRandomNumber(-20,0)
+      y_to= -100
+      loopAnimation= false
+    }
+
     leafContainer.setAttribute('animation',{
       property: 'position',
       to: {
@@ -79,14 +93,14 @@
       },
       dir: 'normal', 
       dur: getRandomNumber(20000, 80000), 
-      loop: true,
+      loop: loopAnimation,
       })
     // notDenContainer.setAttribute('position',{x: 3, y: 4, z: 1})
 
     leafContainer.setAttribute('position',{
-      x: getRandomNumber(-40,40), 
-      y: 19, 
-      z: getRandomNumber(-40, 20)
+      x: xStart, 
+      y: yStart, 
+      z: zStart,
     })
       // this is the event listener where the name is made visable when a leaf is tapped
       newLeaf.addEventListener('mousedown', function() {
@@ -219,11 +233,23 @@
   
  // this is the for loop that generates the many leaves and adds them to the sceneEl    
   for (i=0; i<numberOfLeaves; i++) {
-  rindex = Math.floor(getRandomNumber(0,23))
+    rindex = Math.floor(getRandomNumber(0,23))
     
-    addLeaf(sceneEl, i, leafImages[rindex], normalMap[rindex], leafName[rindex])
+    addLeaf(sceneEl, i, leafImages[rindex], normalMap[rindex], leafName[rindex], false)
 
   }
 
-    }
-    });
+   // this is the for loop that generates the start leaves and adds them to the sceneEl    
+   for (i=(numberOfLeaves); i<numberOfLeaves+20; i++) {
+    rindex = Math.floor(getRandomNumber(0,23))
+    
+    addLeaf(sceneEl, i, leafImages[rindex], normalMap[rindex], leafName[rindex], true)
+
+  }
+//  var index = 0 
+ // i = i+1
+ // addLeaf(sceneEl, i, leafImages[index], normalMap[index], leafName[index], true)
+ 
+
+}
+});
